@@ -1,19 +1,19 @@
-# KLSX
+# 🎨 KLSX
 
 A simple replacement for [clsx](https://www.npmjs.com/package/clsx) **_you may not actually need_** (see the [benchmark](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md))
 
-Developed as a case study, [Bun](https://bun.com) friendly.
+Developed as a case study, [Bun](https://bun.com) friendly. 🌿
 
-## Features
+### Features
 
-- Unnecessarily fast
-- Same functionality and API of clsx
-- Modern ESM syntax
-- Zero dependencies
-- No "lite" mode (simply doesn't make any sense)
-- Only 277B (~190B compressed)
-- Deeply typed and tested
-- Experimental WASM variant (for research purposes, do not use it!)
+- 🚀 Unnecessarily fast (~20M ops/s)
+- 🎯 Same functionality and API of clsx
+- 👑 Modern ESM syntax
+- 💎 Zero dependencies
+- ☀️ No "lite" mode (simply doesn't make any sense)
+- 🎈 Only 277B (~190B compressed)
+- 🐳 Deeply typed and tested
+- 🚨 Experimental WASM variant (for research purposes, do not use it)
 
 ## Installation
 
