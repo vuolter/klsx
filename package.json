@@ -2,7 +2,7 @@
   "name": "clsn",
   "type": "module",
   "version": "0.1.0",
-  "description": "Same as clsx but maybe better",
+  "description": "Same as clsx but \"maybe\" better",
   "author": {
     "name": "Walter Purcaro",
     "url": "https://github.com/vuolter"

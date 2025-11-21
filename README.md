@@ -1,4 +1,9 @@
-# clsn
+# CLSN
+
+A simple replacement for [clsx](https://github.com/lukeed/clsx) you may not actually need (even if it's _lighter & faster_, see [benchmark](#benchmark) below).
+Developed as a case study.
+
+## Installation
 
 To install dependencies:
 
@@ -12,7 +17,33 @@ To build:
 bun run build
 ```
 
+## Testing
+
+To run test suite:
+
+```bash
+bun test
+```
+
+To run benchmark suite:
+
+```bash
+bun bench
+```
+
 ## Usage
+
+Using the function name `clsn`:
+
+```typescript
+import { clsn } from 'clsn'
+
+clsn('foo', 'bar') // -> "foo bar"
+clsn('foo', { bar: true, bux: false }, 'baz') // -> "foo bar baz"
+clsn('foo', [0, 'bar', [{ bux: null, baz: 'I am not empty' }, undefined], 'bax']) // -> "foo bar baz bax"
+```
+
+Using its short alias `cn`:
 
 ```typescript
 import { cn } from 'clsn'
@@ -24,11 +55,11 @@ cn('foo', [0, 'bar', [{ bux: null, baz: 'I am not empty' }, undefined], 'bax']) 
 
 ## Case Study
 
-Coming soon...
+_Coming soon..._
 
 ## Benchmark
 
-Results of 10ms tests in [Bun](https://bun.com) v1.3.2 (tl;dr: almost same speed, negligible differences):
+Results of 10ms tests in [Bun](https://bun.com) v1.3.2 _(tl;dr: **almost same speed, negligible differences**)_:
 
 ```bash
  Benchmark (short strings)
