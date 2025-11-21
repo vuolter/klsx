@@ -1,7 +1,7 @@
 {
   "name": "klsx",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Same as clsx but \"maybe\" better",
   "author": {
     "name": "Walter Purcaro",
@@ -17,6 +17,7 @@
     "cx",
     "klsx",
     "clsx",
+    "class",
     "classix",
     "classname",
     "classnames",
