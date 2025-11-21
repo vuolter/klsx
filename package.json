@@ -60,8 +60,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "bun typecheck && tsdown",
-    "format": "prettier . --cache --experimental-cli --write",
+    "build": "bun typecheck && tsdown && wasm-pack build --out-dir dist/wasm --release --target nodejs",
+    "update": "bun update && cargo update",
+    "format": "prettier . --cache --experimental-cli --write && cargo fmt",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint --cache-strategy content --concurrency auto --fix .",
     "typecheck": "tsgo",
     "bench": "bun ./tests/bench",
