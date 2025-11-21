@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    // Type Checking
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedSideEffectImports": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "strict": true,
+
+    // Modules
+    "allowImportingTsExtensions": true,
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "paths": {
+      "~/*": ["./src/*"],
+      "~~/*": ["./*"]
+    },
+    "resolveJsonModule": true,
+
+    // Emit
+    "declarationMap": false,
+    "noEmit": true,
+    "removeComments": true,
+
+    // JavaScript Support
+    "allowJs": false,
+
+    // Interop Constraints
+    "erasableSyntaxOnly": true,
+    "isolatedDeclarations": true,
+    "verbatimModuleSyntax": true,
+
+    // Language and Environment
+    // "experimentalDecorators": true,
+    "jsx": "react-jsx",
+    "lib": ["ESNext"],
+    "moduleDetection": "force",
+    "target": "esnext",
+    "useDefineForClassFields": true,
+
+    // Projects
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    // Completeness
+    "skipLibCheck": true
+  },
+  "include": ["src", "tests", "types"]
+}

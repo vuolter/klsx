@@ -45,6 +45,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@prettier/plugin-oxc": "^0.0.5",
+    "@typescript/native-preview": "^7.0.0-dev.20251120.1",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
