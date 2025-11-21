@@ -1,57 +1,22 @@
 {
   "name": "klsx",
-  "type": "module",
   "version": "0.1.2",
-  "description": "Same as clsx but \"maybe\" better",
   "author": {
     "name": "Walter Purcaro",
     "url": "https://github.com/vuolter"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vuolter/klsx.git"
   },
-  "keywords": [
-    "cn",
-    "cx",
-    "klsx",
-    "clsx",
-    "class",
-    "classix",
-    "classname",
-    "classnames",
-    "bun"
-  ],
-  "exports": {
-    ".": "./dist/index.js",
-    "./package.json": "./package.json"
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "sideEffects": false,
-  "engines": {
-    "node": ">=18"
-  },
-  "url": "https://github.com/vuolter/klsx",
-  "scripts": {
-    "build": "bun typecheck && tsdown",
-    "format": "prettier . --cache --experimental-cli --write",
-    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint --cache-strategy content --concurrency auto --fix .",
-    "typecheck": "tsgo",
-    "bench": "bun ./tests/bench",
-    "postinstall": "npm install --force --ignore-scripts --package-lock-only --silent"
-  },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@prettier/plugin-oxc": "^0.0.5",
     "@socketsecurity/bun-security-scanner": "^1.1.1",
     "@types/bun": "^1.3.2",
-    "@typescript/native-preview": "^7.0.0-dev.20251120.1",
+    "@typescript/native-preview": "^7.0.0-dev.20251121.1",
     "classix": "^2.2.6",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
@@ -70,5 +35,40 @@
     "tinybench": "^5.1.0",
     "tsdown": "^0.16.6",
     "typescript-eslint": "^8.47.0"
-  }
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "description": "Same as clsx but \"maybe\" better",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "cn",
+    "cx",
+    "klsx",
+    "clsx",
+    "class",
+    "classix",
+    "classname",
+    "classnames",
+    "bun"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "bun typecheck && tsdown",
+    "format": "prettier . --cache --experimental-cli --write",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint --cache-strategy content --concurrency auto --fix .",
+    "typecheck": "tsgo",
+    "bench": "bun ./tests/bench",
+    "postinstall": "npm install --force --ignore-scripts --package-lock-only --silent"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "url": "https://github.com/vuolter/klsx"
 }
