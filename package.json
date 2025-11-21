@@ -1,0 +1,26 @@
+{
+  "name": "clsn",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Same as clsx but maybe better",
+  "author": {
+    "name": "Walter Purcaro",
+    "url": "https://github.com/vuolter"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vuolter/clsn"
+  },
+  "keywords": [
+    "cn",
+    "cx",
+    "clsn",
+    "clsx",
+    "classix",
+    "classname",
+    "classnames",
+    "bun"
+  ],
+  "url": "https://github.com/vuolter/clsn",
+}
