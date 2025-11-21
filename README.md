@@ -1,40 +1,34 @@
 # KLSX
 
-A simple replacement for [clsx](https://github.com/lukeed/clsx) **_you may not actually need_** (see [benchmark](#benchmark)).
+A simple replacement for [clsx](https://github.com/lukeed/clsx) **_you may not actually need_** (see the [benchmark](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md)).
 
-Developed as a case study.
+Developed as a case study, [Bun](https://bun.com) friendly.
+
+## Features
+
+- Unnecessarily fast
+- Same functionality and API of clsx
+- Modern ESM syntax
+- No dependencies
+- No "lite" mode (simply doesn't make any sense)
+- Only 277B (~190B compressed)
+- Experimental WASM variant (for research purposes, don't use it!)
 
 ## Installation
 
-To install dependencies:
-
 ```bash
-bun install
+bun add klsx
 ```
 
-To build:
+or with `npm`:
 
 ```bash
-bun run build
+npm install klsx
 ```
 
-## Testing
+(or with whatever package manager you prefer)
 
-To run test suite:
-
-```bash
-bun test
-```
-
-To run benchmark suite:
-
-```bash
-bun bench
-```
-
-## Usage
-
-Using the function name `klsx`:
+## Quick Start
 
 ```typescript
 import { klsx } from 'klsx'
@@ -44,7 +38,7 @@ klsx('foo', { bar: true, bux: false }, 'baz') // -> "foo bar baz"
 klsx('foo', [0, 'bar', [{ bux: null, baz: 'I am not empty' }, undefined], 'bax']) // -> "foo bar baz bax"
 ```
 
-Using its short alias `cn`:
+or with the short alias `cn`:
 
 ```typescript
 import { cn } from 'klsx'
@@ -54,59 +48,34 @@ cn('foo', { bar: true, bux: false }, 'baz') // -> "foo bar baz"
 cn('foo', [0, 'bar', [{ bux: null, baz: 'I am not empty' }, undefined], 'bax']) // -> "foo bar baz bax"
 ```
 
+## Development
+
+Install dependencies:
+
+```bash
+bun install
+```
+
+Build dist files:
+
+```bash
+bun run build
+```
+
+## Testing
+
+Run test suite:
+
+```bash
+bun test
+```
+
+Run benchmark suite:
+
+```bash
+bun bench
+```
+
 ## Case Study
 
 _Coming soon..._
-
-## Benchmark
-
-Results of 10ms tests in [Bun](https://bun.com) v1.3.2 _(tl;dr: **KLSX is the fastest, but the gap is negligible**)_:
-
-```bash
- Benchmark (short strings)
-┌───┬────────────┬──────────────────┬──────────────────┬────────────────────────┬────────────────────────┬─────────┐
-│   │ Task name  │ Latency avg (ns) │ Latency med (ns) │ Throughput avg (ops/s) │ Throughput med (ops/s) │ Samples │
-├───┼────────────┼──────────────────┼──────────────────┼────────────────────────┼────────────────────────┼─────────┤
-│ 0 │ KLSX       │ 56.46 ± 0.68%    │ 42.00 ± 1.00     │ 20554389 ± 0.13%       │ 23809524 ± 580720      │ 177109  │
-│ 1 │ classix    │ 58.41 ± 4.33%    │ 42.00 ± 1.00     │ 20227141 ± 0.13%       │ 23809524 ± 580720      │ 171195  │
-│ 2 │ clsx       │ 55.72 ± 0.28%    │ 42.00 ± 1.00     │ 20357130 ± 0.13%       │ 23809524 ± 580720      │ 179455  │
-│ 3 │ classnames │ 58.06 ± 4.55%    │ 42.00 ± 1.00     │ 20150251 ± 0.13%       │ 23809524 ± 580720      │ 172248  │
-└───┴────────────┴──────────────────┴──────────────────┴────────────────────────┴────────────────────────┴─────────┘
-
- Benchmark (long strings)
-┌───┬────────────┬──────────────────┬──────────────────┬────────────────────────┬────────────────────────┬─────────┐
-│   │ Task name  │ Latency avg (ns) │ Latency med (ns) │ Throughput avg (ops/s) │ Throughput med (ops/s) │ Samples │
-├───┼────────────┼──────────────────┼──────────────────┼────────────────────────┼────────────────────────┼─────────┤
-│ 0 │ KLSX       │ 135.32 ± 5.93%   │ 125.00 ± 0.00    │ 9377312 ± 0.19%        │ 8000000 ± 0            │ 73900   │
-│ 1 │ classix    │ 174.34 ± 0.75%   │ 125.00 ± 0.00    │ 6765287 ± 0.20%        │ 8000000 ± 0            │ 57360   │
-│ 2 │ clsx       │ 222.94 ± 6.05%   │ 167.00 ± 1.00    │ 5421387 ± 0.20%        │ 5988024 ± 36072        │ 44855   │
-│ 3 │ classnames │ 147.47 ± 0.53%   │ 125.00 ± 0.00    │ 7482902 ± 0.13%        │ 8000000 ± 0            │ 67812   │
-└───┴────────────┴──────────────────┴──────────────────┴────────────────────────┴────────────────────────┴─────────┘
-
- Benchmark (objects)
-┌───┬────────────┬──────────────────┬──────────────────┬────────────────────────┬────────────────────────┬─────────┐
-│   │ Task name  │ Latency avg (ns) │ Latency med (ns) │ Throughput avg (ops/s) │ Throughput med (ops/s) │ Samples │
-├───┼────────────┼──────────────────┼──────────────────┼────────────────────────┼────────────────────────┼─────────┤
-│ 0 │ KLSX       │ 98.96 ± 1.29%    │ 83.00 ± 0.00     │ 11274574 ± 0.10%       │ 12048193 ± 0           │ 101049  │
-│ 1 │ clsx       │ 105.39 ± 0.68%   │ 83.00 ± 0.00     │ 10986267 ± 0.13%       │ 12048193 ± 0           │ 94887   │
-│ 2 │ classnames │ 97.48 ± 0.42%    │ 83.00 ± 0.00     │ 11183838 ± 0.11%       │ 12048193 ± 0           │ 102591  │
-└───┴────────────┴──────────────────┴──────────────────┴────────────────────────┴────────────────────────┴─────────┘
-
- Benchmark (arrays)
-┌───┬────────────┬──────────────────┬──────────────────┬────────────────────────┬────────────────────────┬─────────┐
-│   │ Task name  │ Latency avg (ns) │ Latency med (ns) │ Throughput avg (ops/s) │ Throughput med (ops/s) │ Samples │
-├───┼────────────┼──────────────────┼──────────────────┼────────────────────────┼────────────────────────┼─────────┤
-│ 0 │ KLSX       │ 91.37 ± 0.71%    │ 83.00 ± 0.00     │ 11628447 ± 0.08%       │ 12048193 ± 0           │ 109448  │
-│ 1 │ clsx       │ 140.18 ± 9.28%   │ 125.00 ± 0.00    │ 8325415 ± 0.16%        │ 8000000 ± 0            │ 71340   │
-│ 2 │ classnames │ 137.70 ± 0.34%   │ 125.00 ± 0.00    │ 7673930 ± 0.11%        │ 8000000 ± 0            │ 72624   │
-└───┴────────────┴──────────────────┴──────────────────┴────────────────────────┴────────────────────────┴─────────┘
-
- Benchmark (mixed)
-┌───┬────────────┬──────────────────┬──────────────────┬────────────────────────┬────────────────────────┬─────────┐
-│   │ Task name  │ Latency avg (ns) │ Latency med (ns) │ Throughput avg (ops/s) │ Throughput med (ops/s) │ Samples │
-├───┼────────────┼──────────────────┼──────────────────┼────────────────────────┼────────────────────────┼─────────┤
-│ 0 │ KLSX       │ 120.19 ± 6.40%   │ 125.00 ± 41.00   │ 9823538 ± 0.16%        │ 8000000 ± 3904762      │ 83200   │
-│ 1 │ clsx       │ 150.46 ± 6.24%   │ 125.00 ± 0.00    │ 7441597 ± 0.13%        │ 8000000 ± 0            │ 66465   │
-│ 2 │ classnames │ 179.99 ± 5.99%   │ 167.00 ± 0.00    │ 6080521 ± 0.13%        │ 5988024 ± 0            │ 55558   │
-└───┴────────────┴──────────────────┴──────────────────┴────────────────────────┴────────────────────────┴─────────┘
-```
