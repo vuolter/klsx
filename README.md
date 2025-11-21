@@ -1,6 +1,7 @@
 # CLSN
 
-A simple replacement for [clsx](https://github.com/lukeed/clsx) you may not actually need (even if it's _lighter & faster_, see [benchmark](#benchmark) below).
+A simple replacement for [clsx](https://github.com/lukeed/clsx) **_you may not actually need_** (see [benchmark](#benchmark)).
+
 Developed as a case study.
 
 ## Installation
@@ -59,7 +60,7 @@ _Coming soon..._
 
 ## Benchmark
 
-Results of 10ms tests in [Bun](https://bun.com) v1.3.2 _(tl;dr: **almost same speed, negligible differences**)_:
+Results of 10ms tests in [Bun](https://bun.com) v1.3.2 _(tl;dr: **CLSN is the fastest, but the gap is negligible**)_:
 
 ```bash
  Benchmark (short strings)
