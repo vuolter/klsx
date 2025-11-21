@@ -1,15 +1,13 @@
 name: Publish Package to npmjs
 
 on:
-  workflow_run:
-    workflows: [Publish Release to GitHub]
-    types: completed
-    branches: main
+  push:
+    if: github.ref_name == 'main'
+    tags:
+      - 'v*'
 
 jobs:
   publish:
-    if: github.event.workflow_run.conclusion == 'success'
-
     runs-on: ubuntu-latest
 
     permissions:
