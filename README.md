@@ -1,6 +1,6 @@
 # KLSX
 
-A simple replacement for [clsx](https://github.com/lukeed/clsx) **_you may not actually need_** (see the [benchmark](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md))
+A simple replacement for [clsx](https://www.npmjs.com/package/clsx) **_you may not actually need_** (see the [benchmark](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md))
 
 Developed as a case study, [Bun](https://bun.com) friendly.
 
