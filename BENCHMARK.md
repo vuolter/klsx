@@ -1,8 +1,9 @@
-## Benchmarks
+## Benchmark
 
-Results of _10ms_ tests in Bun v1.3.2 on Apple Silicon:
+Test results _10ms_ each in Bun v1.3.2 on Apple Silicon.
+Look at the column `Samples` as a quick indicator of performance.
 
-(tl;dr: **KLSX is the lightest & fastest, but the gap is negligible**)
+(TL;DR: **KLSX is the lightest & fastest almost everywhere, but the gap is so negligible and error prone**)
 
 Benchmark (short strings):
 
@@ -46,7 +47,7 @@ Benchmark (mixed):
 | 1   | clsx       | 150.46 ± 6.24%   | 125.00 ± 0.00    | 7441597 ± 0.13%        | 8000000 ± 0            | 66465   |
 | 2   | classnames | 179.99 ± 5.99%   | 167.00 ± 0.00    | 6080521 ± 0.13%        | 5988024 ± 0            | 55558   |
 
-Storage Size (footprint):
+Storage Size (entry point only):
 
 |     | Task name  | Size (bytes) |
 | --- | ---------- | ------------ |

@@ -116,7 +116,7 @@ for (const [name, table] of Object.entries(benchTables)) {
   console.log('\n', `Benchmark (${name}):`)
   console.table(table)
 }
-console.log('\n', 'Storage Size (footprint):')
+console.log('\n', 'Storage Size (entry point only):')
 console.table(storageTable)
 
 console.log('\n', 'Memory Usage (shallow):')
