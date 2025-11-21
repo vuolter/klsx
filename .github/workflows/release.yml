@@ -1,0 +1,47 @@
+name: Publish Release to GitHub
+
+on:
+  push:
+    if: github.ref_name == 'main'
+    tags:
+      - 'v*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun ci
+
+      - name: Run unit tests
+        run: bun test
+
+  release:
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Publish release
+        uses: ghalactic/github-release-from-tag@v6
+        with:
+          generateReleaseNotes: true
+          makeLatest: semver
+          prerelease: false
+          summaryEnabled: false
