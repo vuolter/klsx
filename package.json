@@ -1,5 +1,5 @@
 {
-  "name": "clsn",
+  "name": "klsx",
   "type": "module",
   "version": "0.1.0",
   "description": "Same as clsx but \"maybe\" better",
@@ -10,12 +10,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuolter/clsn.git"
+    "url": "git+https://github.com/vuolter/klsx.git"
   },
   "keywords": [
     "cn",
     "cx",
-    "clsn",
+    "klsx",
     "clsx",
     "classix",
     "classname",
@@ -35,7 +35,7 @@
   "engines": {
     "node": ">=18"
   },
-  "url": "https://github.com/vuolter/clsn",
+  "url": "https://github.com/vuolter/klsx",
   "scripts": {
     "build": "bun typecheck && tsdown",
     "format": "prettier . --cache --experimental-cli --write",

@@ -1,1 +1,1 @@
-export { cn as clsn, cn, cn as default } from '~/cn'
+export { cn, cn as default, cn as klsx } from '~/cn'

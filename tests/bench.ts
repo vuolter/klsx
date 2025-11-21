@@ -8,7 +8,7 @@ import { cn } from '~/cn'
 
 const COMPETITORS = [
   ...Object.entries({
-    CLSN: cn,
+    KLSX: cn,
     classix: cx,
     clsx: clsx,
     classnames: classnames,
