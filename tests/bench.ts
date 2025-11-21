@@ -1,3 +1,4 @@
+import { estimateShallowMemoryUsageOf } from 'bun:jsc'
 import { cx } from 'classix'
 import classnames from 'classnames'
 import { clsx } from 'clsx'
@@ -72,9 +73,10 @@ const bench = new Bench({
   },
   time: 10,
 })
-const tables: Record<string, ReturnType<typeof bench.table>> = {}
+const benchTables: Record<string, ReturnType<typeof bench.table>> = {}
 
 const start = Bun.nanoseconds()
+
 let count = 0
 for (const [name, { cb, exclude }] of TASKS) {
   for (const [id, fn] of COMPETITORS) {
@@ -87,17 +89,37 @@ for (const [name, { cb, exclude }] of TASKS) {
   console.log(` Running benchmark [${++count}/${TASKS.length}]: ${name} ...`)
   await bench.run()
 
-  tables[name] = bench.table()
+  benchTables[name] = bench.table()
 
   for (const [id] of COMPETITORS) {
     bench.remove(id)
   }
   bench.reset()
 }
+
+const storageTable = []
+const memoryTable = []
+
+const name = 'Task name'
+const size = 'Size (bytes)'
+
+for (const [id, fn] of COMPETITORS) {
+  const storage = Buffer.byteLength(fn.toString(), 'utf8')
+  const memory = estimateShallowMemoryUsageOf(fn)
+  storageTable.push({ [name]: id, [size]: storage })
+  memoryTable.push({ [name]: id, [size]: memory })
+}
+
 const end = Bun.nanoseconds()
 
-for (const [name, table] of Object.entries(tables)) {
-  console.log('\n', `Benchmark (${name})`)
+for (const [name, table] of Object.entries(benchTables)) {
+  console.log('\n', `Benchmark (${name}):`)
   console.table(table)
 }
-console.log('\n', `Benchmark completed in ${nToMs(end - start)} ms.`)
+console.log('\n', 'Storage Size (footprint):')
+console.table(storageTable)
+
+console.log('\n', 'Memory Usage (shallow):')
+console.table(memoryTable)
+
+console.log('\n', `Completed in ${nToMs(end - start)} ms.`)
