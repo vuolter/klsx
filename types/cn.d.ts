@@ -1,10 +1,10 @@
-declare type ClsnObject = Record<string, boolean | unknown>
-declare type ClsnArray = ClsnValue[]
-declare type ClsnValue =
+declare type KlsxObject = Record<string, boolean | unknown>
+declare type KlsxArray = KlsxValue[]
+declare type KlsxValue =
   | bigint
   | boolean
-  | ClsnArray
-  | ClsnObject
+  | KlsxArray
+  | KlsxObject
   | null
   | number
   | string

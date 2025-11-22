@@ -1,4 +1,4 @@
-export function _cn(args: Readonly<ClsnValue[]>): string {
+export function _cn(args: Readonly<KlsxValue[]>): string {
   let str = ''
   for (const arg of args) {
     if (!arg) {
@@ -24,7 +24,7 @@ export function _cn(args: Readonly<ClsnValue[]>): string {
   return str
 }
 
-export function cn(...args: ClsnValue[]): string {
+export function cn(...args: KlsxValue[]): string {
   return _cn(args)
 }
 
