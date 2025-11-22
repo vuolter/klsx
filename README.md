@@ -27,8 +27,6 @@ or with `npm`:
 npm install klsx
 ```
 
-_(or with whatever package manager you prefer)_
-
 ## Quick Start
 
 ```typescript

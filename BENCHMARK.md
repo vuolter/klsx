@@ -47,20 +47,11 @@ Benchmark (mixed):
 | 1   | clsx       | 150.46 ± 6.24%   | 125.00 ± 0.00    | 7441597 ± 0.13%        | 8000000 ± 0            | 66465   |
 | 2   | classnames | 179.99 ± 5.99%   | 167.00 ± 0.00    | 6080521 ± 0.13%        | 5988024 ± 0            | 55558   |
 
-Storage Size (entry point only):
+Memory Usage:
 
-|     | Task name  | Size (bytes) |
-| --- | ---------- | ------------ |
-| 0   | KLSX       | 44           |
-| 1   | classix    | 163          |
-| 2   | clsx       | 163          |
-| 3   | classnames | 241          |
-
-Memory Usage (shallow):
-
-|     | Task name  | Size (bytes) |
-| --- | ---------- | ------------ |
-| 0   | KLSX       | 32           |
-| 1   | classix    | 32           |
-| 2   | clsx       | 32           |
-| 3   | classnames | 36           |
+|     | Task name  | Footprint size (bytes) | Shallow size (bytes) |
+| --- | ---------- | ---------------------- | -------------------- |
+| 0   | KLSX       | 44                     | 32                   |
+| 1   | classix    | 163                    | 32                   |
+| 2   | clsx       | 163                    | 32                   |
+| 3   | classnames | 241                    | 36                   |

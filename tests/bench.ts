@@ -97,17 +97,16 @@ for (const [name, { cb, exclude }] of TASKS) {
   bench.reset()
 }
 
-const storageTable = []
 const memoryTable = []
 
 const name = 'Task name'
-const size = 'Size (bytes)'
+const footprint = 'Footprint size (bytes)'
+const shallow = 'Shallow size (bytes)'
 
 for (const [id, fn] of COMPETITORS) {
   const storage = Buffer.byteLength(fn.toString(), 'utf8')
   const memory = estimateShallowMemoryUsageOf(fn)
-  storageTable.push({ [name]: id, [size]: storage })
-  memoryTable.push({ [name]: id, [size]: memory })
+  memoryTable.push({ [name]: id, [footprint]: storage, [shallow]: memory })
 }
 
 const end = Bun.nanoseconds()
@@ -116,10 +115,7 @@ for (const [name, table] of Object.entries(benchTables)) {
   console.log('\n', `Benchmark (${name}):`)
   console.table(table)
 }
-console.log('\n', 'Storage Size (entry point only):')
-console.table(storageTable)
-
-console.log('\n', 'Memory Usage (shallow):')
+console.log('\n', 'Memory Usage:')
 console.table(memoryTable)
 
 console.log('\n', `Completed in ${nToMs(end - start)} ms.`)
