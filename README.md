@@ -2,7 +2,7 @@
 
 A simple replacement for [clsx](https://www.npmjs.com/package/clsx) **_you may not actually need_** (see the [benchmark](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md))
 
-Used to construct `classNames` conditionally with strings, arrays and key-value objects.
+Used to construct `class` conditionally with strings, arrays and key-value objects.
 
 Developed as a case study, [Bun](https://bun.com) friendly. 🌿
 
@@ -34,19 +34,42 @@ npm install klsx
 ```typescript
 import { klsx } from 'klsx'
 
-klsx('foo', 'bar') // -> "foo bar"
-klsx('foo', { bar: true, bux: false }, 'baz') // -> "foo bar baz"
-klsx('foo', [0, 'bar', [{ bux: null, baz: 'I am not empty' }, undefined], 'bax']) // -> "foo bar baz bax"
+klsx('foo', 'bar', 'baz')
+// => "foo bar baz"
+
+klsx({foo: 'string', bar: true, bux: null }, 'baz')
+// => "foo bar baz"
+
+klsx(['foo', ['bar', true && 'baz']])
+// => "foo bar baz"
 ```
 
-or with the short alias `cn`:
+or importing the short alias `cn`:
 
-```typescript
+### React
+
+```jsx
+import React, { useState } from 'react';
 import { cn } from 'klsx'
 
-cn('foo', 'bar') // -> "foo bar"
-cn('foo', { bar: true, bux: false }, 'baz') // -> "foo bar baz"
-cn('foo', [0, 'bar', [{ bux: null, baz: 'I am not empty' }, undefined], 'bax']) // -> "foo bar baz bax"
+const MyComponent = () => {
+  const [isActive, setIsActive] = useState(false);
+  return (
+    <div>
+        <div className={cn('base-class', isActive ? 'active' : 'inactive')}>
+        {/* ... */}
+        </div>
+
+        <div className={cn('base-class', {'active': isActive, 'inactive': !isActive})}>
+        {/* ... */}
+        </div>
+        
+        <div className={cn('base-class', [isActive && 'active', !isActive && 'inactive'])}>
+        {/* ... */}
+        </div>
+    </div>
+  );
+};
 ```
 
 ## Integrations
