@@ -1,6 +1,8 @@
-# 🎨 KLSX
+# 🎨 𝒌𝒍𝒔𝒙
 
 A simple replacement for [clsx](https://www.npmjs.com/package/clsx) **_you may not actually need_** (see the [benchmark](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md))
+
+Used to construct `classNames` conditionally with strings, arrays and key-value objects.
 
 Developed as a case study, [Bun](https://bun.com) friendly. 🌿
 
@@ -13,7 +15,7 @@ Developed as a case study, [Bun](https://bun.com) friendly. 🌿
 - ☀️ No "lite" mode (simply doesn't make any sense)
 - 🎈 Only 277B (~190B compressed)
 - 🐳 Deeply typed and tested
-- 🚨 Experimental WASM variant (for research purposes, do not use it)
+- 🚨 [Experimental WASM variant](https://github.com/vuolter/klsx/tree/wasm) (for research purposes, do not use it)
 
 ## Installation
 
