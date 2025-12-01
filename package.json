@@ -33,7 +33,7 @@
     "globals": "^16.5.0",
     "prettier": "^3.6.2",
     "tinybench": "^5.1.0",
-    "tsdown": "^0.16.6",
+    "tsdown": "^0.16.8",
     "typescript-eslint": "^8.47.0"
   },
   "exports": {
