@@ -31,7 +31,7 @@
     "eslint-plugin-tsdoc": "^0.5.0",
     "eslint-plugin-unicorn": "^62.0.0",
     "globals": "^16.5.0",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.3",
     "tinybench": "^5.1.0",
     "tsdown": "^0.16.6",
     "typescript-eslint": "^8.47.0"
