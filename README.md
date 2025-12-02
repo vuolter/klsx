@@ -37,7 +37,7 @@ import { klsx } from 'klsx'
 klsx('foo', 'bar', 'baz')
 // => "foo bar baz"
 
-klsx({foo: 'string', bar: true, bux: null }, 'baz')
+klsx({ foo: 'string', bar: true, bux: null }, 'baz')
 // => "foo bar baz"
 
 klsx(['foo', ['bar', true && 'baz']])
@@ -49,27 +49,29 @@ or importing the short alias `kx`:
 ### React
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { kx } from 'klsx'
 
 const MyComponent = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false)
   return (
     <div>
-        <div className={kx('base-class', isActive ? 'active' : 'inactive')}>
+      <div className={kx('base-class', isActive ? 'active' : 'inactive')}>
         {/* ... */}
-        </div>
+      </div>
 
-        <div className={kx('base-class', {'active': isActive, 'inactive': !isActive})}>
+      <div className={kx('base-class', { active: isActive, inactive: !isActive })}>
         {/* ... */}
-        </div>
-        
-        <div className={kx('base-class', [isActive && 'active', !isActive && 'inactive'])}>
+      </div>
+
+      <div
+        className={kx('base-class', [isActive && 'active', !isActive && 'inactive'])}
+      >
         {/* ... */}
-        </div>
+      </div>
     </div>
-  );
-};
+  )
+}
 ```
 
 ### Migrate from `clsx`
@@ -81,9 +83,9 @@ From:
 ```typescript
 // clsx
 
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
- 
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -94,10 +96,10 @@ To:
 ```typescript
 // KLSX
 
-import { klsx, type KlassValue } from "klsx"
-import { twMerge } from "tailwind-merge"
- 
-export function cn(...inputs: ClassValue[]) {
+import { klsx, type KlassValue } from 'klsx'
+import { twMerge } from 'tailwind-merge'
+
+export function cn(...inputs: KlassValue[]) {
   return twMerge(klsx(inputs))
 }
 ```
@@ -135,8 +137,8 @@ bun add -D prettier prettier-plugin-tailwindcss
 ```javascript
 /** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
 export default {
-  plugins: ["prettier-plugin-tailwindcss"],
-  tailwindFunctions: ['klsx', 'kx']
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindFunctions: ['klsx', 'kx'],
 }
 ```
 
