@@ -1,16 +1,48 @@
 {
   "name": "klsx",
-  "version": "0.2.2",
+  "version": "0.3.0",
+  "type": "module",
+  "description": "Same as clsx but \"maybe\" better",
   "author": {
     "name": "Walter Purcaro",
     "url": "https://github.com/vuolter"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vuolter/klsx.git"
   },
+  "url": "https://github.com/vuolter/klsx",
+  "keywords": [
+    "cn",
+    "cx",
+    "kx",
+    "klsx",
+    "clsx",
+    "class",
+    "classix",
+    "classname",
+    "classnames",
+    "bun"
+  ],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "bun compile && tsdown",
+    "format": "prettier . --cache --experimental-cli --write",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint --cache-strategy content --concurrency auto --fix .",
+    "compile": "tsgo",
+    "bench": "bun ./tests/bench",
+    "postinstall": "npm install --force --ignore-scripts --package-lock-only --silent"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@prettier/plugin-oxc": "^0.1.2",
@@ -36,39 +68,8 @@
     "tsdown": "^0.17.0-beta.5",
     "typescript-eslint": "^8.48.0"
   },
-  "exports": {
-    ".": "./dist/index.js",
-    "./package.json": "./package.json"
-  },
-  "description": "Same as clsx but \"maybe\" better",
   "engines": {
     "node": ">=18"
   },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "cn",
-    "cx",
-    "klsx",
-    "clsx",
-    "class",
-    "classix",
-    "classname",
-    "classnames",
-    "bun"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "bun typecheck && tsdown",
-    "format": "prettier . --cache --experimental-cli --write",
-    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint --cache-strategy content --concurrency auto --fix .",
-    "typecheck": "tsgo",
-    "bench": "bun ./tests/bench",
-    "postinstall": "npm install --force --ignore-scripts --package-lock-only --silent"
-  },
-  "sideEffects": false,
-  "type": "module",
-  "types": "./dist/index.d.ts",
-  "url": "https://github.com/vuolter/klsx"
+  "sideEffects": false
 }
