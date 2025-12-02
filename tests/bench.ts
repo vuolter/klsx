@@ -4,11 +4,11 @@ import classnames from 'classnames'
 import { clsx } from 'clsx'
 import { Bench, nToMs } from 'tinybench'
 
-import { cn } from '~/cn'
+import { kx } from '~/kx'
 
 const COMPETITORS = [
   ...Object.entries({
-    KLSX: cn,
+    KLSX: kx,
     classix: cx,
     clsx: clsx,
     classnames: classnames,

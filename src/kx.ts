@@ -1,4 +1,6 @@
-export function _cn(args: Readonly<KlsxValue[]>): string {
+import type { KlassValue } from '~/types'
+
+export function _kx(args: Readonly<KlassValue[]>): string {
   let str = ''
   for (const arg of args) {
     if (!arg) {
@@ -8,9 +10,9 @@ export function _cn(args: Readonly<KlsxValue[]>): string {
       str = str ? str + ' ' + arg : arg
     } else if (typeof arg == 'object') {
       if (Array.isArray(arg)) {
-        const tmp = _cn(arg)
-        if (tmp) {
-          str = str ? str + ' ' + tmp : tmp
+        const sub = _kx(arg)
+        if (sub) {
+          str = str ? str + ' ' + sub : sub
         }
       } else {
         for (const key in arg) {
@@ -24,8 +26,8 @@ export function _cn(args: Readonly<KlsxValue[]>): string {
   return str
 }
 
-export function cn(...args: KlsxValue[]): string {
-  return _cn(args)
+export function kx(...args: KlassValue[]): string {
+  return _kx(args)
 }
 
-export default cn
+export default kx
