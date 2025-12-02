@@ -44,27 +44,27 @@ klsx(['foo', ['bar', true && 'baz']])
 // => "foo bar baz"
 ```
 
-or importing the short alias `cn`:
+or importing the short alias `kx`:
 
 ### React
 
 ```jsx
 import React, { useState } from 'react';
-import { cn } from 'klsx'
+import { kx } from 'klsx'
 
 const MyComponent = () => {
   const [isActive, setIsActive] = useState(false);
   return (
     <div>
-        <div className={cn('base-class', isActive ? 'active' : 'inactive')}>
+        <div className={kx('base-class', isActive ? 'active' : 'inactive')}>
         {/* ... */}
         </div>
 
-        <div className={cn('base-class', {'active': isActive, 'inactive': !isActive})}>
+        <div className={kx('base-class', {'active': isActive, 'inactive': !isActive})}>
         {/* ... */}
         </div>
         
-        <div className={cn('base-class', [isActive && 'active', !isActive && 'inactive'])}>
+        <div className={kx('base-class', [isActive && 'active', !isActive && 'inactive'])}>
         {/* ... */}
         </div>
     </div>
@@ -72,26 +72,73 @@ const MyComponent = () => {
 };
 ```
 
+### Migrate from `clsx`
+
+Just replace every `c` with a `k`, as in the example below.
+
+From:
+
+```typescript
+// clsx
+
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+ 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+
+To:
+
+```typescript
+// KLSX
+
+import { klsx, type KlassValue } from "klsx"
+import { twMerge } from "tailwind-merge"
+ 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(klsx(inputs))
+}
+```
+
 ## Integrations
 
 ### Tailwind CSS
 
-<details open>
-<summary>
-  Visual Studio Code
-</summary>
+#### Visual Studio Code
 
-1. Install the [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extension.
+1. Install the [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extension:
+
+```bash
+code --install-extension bradlc.vscode-tailwindcss
+```
 
 2. Update your [`settings.json`](https://code.visualstudio.com/docs/getstarted/settings) configuration with:
 
 ```json
 {
-  "tailwindCSS.classFunctions": ["klsx", "cn"]
+  "tailwindCSS.classFunctions": ["klsx", "kx"]
 }
 ```
 
-</details>
+#### Prettier
+
+1. Install the [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss) plugin:
+
+```bash
+bun add -D prettier prettier-plugin-tailwindcss
+```
+
+2. Update your `prettier.config.js` configuration to handle `klsx`:
+
+```javascript
+/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
+export default {
+  plugins: ["prettier-plugin-tailwindcss"],
+  tailwindFunctions: ['klsx', 'kx']
+}
+```
 
 ### ESLint
 
@@ -103,7 +150,7 @@ bun add -D eslint eslint-plugin-clsx
 
 2. Update your `eslint.config.js` configuration to handle `klsx`:
 
-```typescript
+```javascript
 import { defineConfig } from 'eslint/config'
 import clsx from 'eslint-plugin-clsx'
 
@@ -111,7 +158,7 @@ export default defineConfig({
   plugins: { clsx },
   settings: {
     clsxOptions: {
-      klsx: ['default', 'klsx', 'cn'],
+      klsx: ['default', 'klsx', 'kx'],
     },
   },
 })
@@ -144,7 +191,3 @@ Run benchmark suite:
 ```bash
 bun bench
 ```
-
-## Case Study
-
-_Coming soon..._
