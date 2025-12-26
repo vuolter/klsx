@@ -65,7 +65,7 @@
     "globals": "^16.5.0",
     "prettier": "^3.7.4",
     "tinybench": "^6.0.0",
-    "tsdown": "^0.18.1",
+    "tsdown": "^0.18.3",
     "typescript-eslint": "^8.50.0"
   },
   "engines": {
