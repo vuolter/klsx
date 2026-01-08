@@ -3,12 +3,16 @@ import { cx } from 'classix'
 import classnames from 'classnames'
 import { clsx } from 'clsx'
 import { Bench, nToMs } from 'tinybench'
+import { kx as kxjs } from '~~/dist/index.js'
+import { kx as kxwa } from '~~/dist/wasm/kx.js'
 
 import { kx } from '~/kx'
 
 const COMPETITORS = [
   ...Object.entries({
-    KLSX: kx,
+    'KLSX (TS)': kx,
+    'KLSX (JS)': kxjs,
+    'KLSX (WASM)': kxwa,
     classix: cx,
     clsx: clsx,
     classnames: classnames,
@@ -17,12 +21,12 @@ const COMPETITORS = [
 const TASKS = [
   ...Object.entries({
     'short strings': {
-      cb: (fn: CallableFunction) => fn('foo', 'bar'),
+      cb: (fn: CallableFunction) => fn(['foo', 'bar']),
       exclude: [],
     },
     'long strings': {
       cb: (fn: CallableFunction) =>
-        fn(
+        fn([
           '',
           'foo',
           'bar',
@@ -41,24 +45,33 @@ const TASKS = [
           'baz',
           'bax',
           'bux',
-        ),
+        ]),
       exclude: [],
     },
     objects: {
       cb: (fn: CallableFunction) =>
-        fn(
+        fn([
           { foo: true, bar: true, bax: true, bux: false },
           { baz: true, bax: false, bux: true },
-        ),
+        ]),
       exclude: ['classix'],
     },
     arrays: {
-      cb: (fn: CallableFunction) => fn(['foo', 'bar'], ['baz', 'bax', 'bux']),
+      cb: (fn: CallableFunction) =>
+        fn([
+          ['foo', 'bar'],
+          ['baz', 'bax', 'bux'],
+        ]),
       exclude: ['classix'],
     },
     mixed: {
       cb: (fn: CallableFunction) =>
-        fn('foo', 'bar', { bax: true, bux: false }, ['baz', { bax: false, bux: true }]),
+        fn([
+          'foo',
+          'bar',
+          { bax: true, bux: false },
+          ['baz', { bax: false, bux: true }],
+        ]),
       exclude: ['classix'],
     },
   }),
