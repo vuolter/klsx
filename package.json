@@ -36,8 +36,9 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "bun compile && tsdown",
-    "format": "prettier . --cache --experimental-cli --write",
+    "build": "bun compile && tsdown && wasm-pack build --out-dir dist/wasm --release --target nodejs",
+    "update": "bun update && cargo update",
+    "format": "prettier . --cache --experimental-cli --write && cargo fmt",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint --cache-strategy content --concurrency auto --fix .",
     "compile": "tsgo",
     "bench": "bun ./tests/bench",
