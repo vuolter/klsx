@@ -1,5 +1,6 @@
 import type { KlassValue } from '~/types'
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export function _kx(args: Readonly<KlassValue[]>): string {
   let str = ''
   for (const arg of args) {
