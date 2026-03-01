@@ -17,6 +17,7 @@ export function _kx(args: Readonly<KlassValue[]>): string {
         }
       } else {
         for (const key in arg) {
+          // eslint-disable-next-line security/detect-object-injection
           if (arg[key]) {
             str = str ? str + ' ' + key : key
           }

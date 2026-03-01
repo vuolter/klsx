@@ -89,6 +89,7 @@ for (const [name, { cb, exclude }] of TASKS) {
   console.log(` Running benchmark [${++count}/${TASKS.length}]: ${name} ...`)
   await bench.run()
 
+  // eslint-disable-next-line security/detect-object-injection
   benchTables[name] = bench.table()
 
   for (const [id] of COMPETITORS) {
