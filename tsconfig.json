@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     // Type Checking
+    "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -19,6 +20,8 @@
       "~~/*": ["./*"]
     },
     "resolveJsonModule": true,
+    "rewriteRelativeImportExtensions": true,
+    "types": ["bun"],
 
     // Emit
     "declarationMap": false,
