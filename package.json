@@ -34,8 +34,8 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "bun compile && tsdown",
-    "compile": "tsgo --build --noEmit",
+    "build": "bun typecheck && tsdown",
+    "typecheck": "tsc --build --noEmit",
     "format": "oxfmt --write .",
     "lint": "oxlint --fix .",
     "bench": "bun run build && bun ./tests/bench",
@@ -43,7 +43,6 @@
   },
   "devDependencies": {
     "@types/bun": "^1.3.11",
-    "@typescript/native-preview": "^7.0.0-dev.20260328.1",
     "classix": "^2.2.11",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
@@ -53,6 +52,7 @@
     "oxfmt": "0.76.0",
     "oxlint": "1.91.0",
     "oxlint-tsgolint": "7.0.2005",
+    "typescript": "7.0.2"
   },
   "engines": {
     "node": ">=18"
