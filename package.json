@@ -1,33 +1,33 @@
 {
   "name": "klsx",
+  "version": "0.4.0",
   "description": "Same as clsx but \"maybe\" better",
-  "version": "0.3.3",
-  "type": "module",
-  "author": {
-    "name": "Walter Purcaro",
-    "url": "https://github.com/vuolter"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vuolter/klsx.git"
-  },
-  "url": "https://github.com/vuolter/klsx",
   "keywords": [
-    "cn",
-    "cx",
-    "kx",
-    "klsx",
-    "clsx",
+    "bun",
     "class",
     "classix",
     "classname",
     "classnames",
-    "bun"
+    "clsx",
+    "cn",
+    "cx",
+    "klsx",
+    "kx"
   ],
+  "license": "MIT",
+  "author": {
+    "name": "Walter Purcaro",
+    "url": "https://github.com/vuolter"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuolter/klsx.git"
+  },
   "files": [
     "dist"
   ],
+  "type": "module",
+  "sideEffects": false,
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
@@ -42,20 +42,19 @@
     "postinstall": "npm install --force --ignore-scripts --package-lock-only --silent"
   },
   "devDependencies": {
-    "@types/bun": "^1.3.11",
-    "classix": "^2.2.11",
-    "classnames": "^2.5.1",
-    "clsx": "^2.1.1",
-    "tinybench": "^6.0.0",
-    "tsdown": "^0.21.6",
     "@socketsecurity/bun-security-scanner": "1.1.3",
+    "@types/bun": "1.4.4",
+    "classix": "2.2.21",
+    "classnames": "2.5.1",
+    "clsx": "2.1.1",
     "oxfmt": "0.76.0",
     "oxlint": "1.91.0",
     "oxlint-tsgolint": "7.0.2005",
+    "tinybench": "6.2.3",
+    "tsdown": "0.23.4",
     "typescript": "7.0.2"
   },
   "engines": {
     "node": ">=18"
-  },
-  "sideEffects": false
+  }
 }
