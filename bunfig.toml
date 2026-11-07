@@ -1,5 +1,10 @@
 telemetry = false
 # logLevel = "debug"
 
+[install]
+linker = "isolated"
+minimumReleaseAge = 259200
+exact = true
+
 [install.security]
 scanner = "@socketsecurity/bun-security-scanner"
