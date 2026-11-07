@@ -1,11 +1,11 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.formatOnSave": true,
   "npm.packageManager": "bun",
-  "typescript.experimental.useTsgo": true,
+  "js/ts.experimental.useTsgo": true,
+  "oxc.path.oxfmt": "node_modules/oxfmt/dist/cli.js",
+  "oxc.path.oxlint": "node_modules/oxlint/dist/cli.js",
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
