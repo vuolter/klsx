@@ -36,9 +36,9 @@
   "scripts": {
     "build": "bun compile && tsdown",
     "compile": "tsgo --build --noEmit",
-    "bench": "bun ./tests/bench",
     "format": "oxfmt --write .",
     "lint": "oxlint --fix .",
+    "bench": "bun run build && bun ./tests/bench",
     "postinstall": "npm install --force --ignore-scripts --package-lock-only --silent"
   },
   "devDependencies": {
