@@ -9,13 +9,13 @@ import { clsx } from 'clsx'
 import { Bench, nToMs } from 'tinybench'
 
 const COMPETITORS = Object.entries({
-  KLSX: klsx,
+  klsx,
   classix: cx,
   clsx: clsx,
   classnames: classnames,
 })
 const TASKS = Object.entries({
-  'mixed / real-world usage': {
+  'mixed / real-world': {
     cb: (fn: CallableFunction) =>
       fn('foo', 'bar', { bax: true, bux: false }, ['baz', { bax: false, bux: true }]),
     exclude: ['classix'],
@@ -85,7 +85,7 @@ const ordinal = (n: number): string => {
   return `${n}${suffixes[n % 10] ?? 'th'}`
 }
 
-// ANSI styles to highlight the KLSX row in terminal output
+// ANSI styles to highlight the 𝒌𝒍𝒔𝒙 row in terminal output
 const ANSI_RESET = '\u001B[0m'
 const BOLD = '\u001B[1m'
 // Fully saturated truecolor, so the colours don't depend on the terminal theme
@@ -103,11 +103,11 @@ const paintRow = (row: Row, foreground: string): Row =>
   )
 
 // console.table uses object keys as its first column, so keys are the ordinal positions.
-// When ranked, KLSX text is green if it is the winner (1st) and red otherwise.
+// When ranked, 𝒌𝒍𝒔𝒙 text is green if it is the winner (1st) and red otherwise.
 const withOrdinals = (rows: Row[], ranked: boolean): Record<string, Row> =>
   Object.fromEntries(
     rows.map((row, i) => {
-      if (row[PACKAGE_COLUMN] !== 'KLSX') {
+      if (row[PACKAGE_COLUMN] !== 'klsx') {
         return [ordinal(i + 1), row]
       }
       const foreground = ranked ? (i === 0 ? GREEN_TEXT : RED_TEXT) : ''
@@ -137,7 +137,7 @@ const toScoreTable = (table: ReturnType<typeof bench.table>): Row[] =>
 
 // Installed version of each package under test, printed before the run
 const PACKAGE_JSON: Record<string, string> = {
-  KLSX: `${import.meta.dir}/../package.json`,
+  klsx: `${import.meta.dir}/../package.json`,
   classix: Bun.resolveSync('classix/package.json', import.meta.dir),
   clsx: Bun.resolveSync('clsx/package.json', import.meta.dir),
   classnames: Bun.resolveSync('classnames/package.json', import.meta.dir),
@@ -221,7 +221,7 @@ const distSizesOf = async (file: string) => {
 }
 
 const DIST_FILES: Record<string, string> = {
-  KLSX: `${import.meta.dir}/../dist/index.js`,
+  klsx: `${import.meta.dir}/../dist/index.js`,
   classix: Bun.resolveSync('classix', import.meta.dir),
   clsx: Bun.resolveSync('clsx', import.meta.dir),
   classnames: Bun.resolveSync('classnames', import.meta.dir),

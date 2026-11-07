@@ -1,9 +1,9 @@
 // Prints the total V8 heap size (bytes) after loading one library in a fresh process.
-// Usage: bun ./tests/memory.ts <KLSX | classix | clsx | classnames | baseline>
+// Usage: bun ./tests/memory.ts <𝒌𝒍𝒔𝒙 | classix | clsx | classnames | baseline>
 const LIBS: Record<string, () => Promise<unknown>> = {
   baseline: async () => {},
   // @ts-ignore
-  KLSX: () => import('@@/dist/index'),
+  klsx: () => import('@@/dist/index'),
   classix: () => import('classix'),
   clsx: () => import('clsx'),
   classnames: () => import('classnames'),

@@ -1,88 +1,108 @@
 # 🎨 𝒌𝒍𝒔𝒙
 
-A simple replacement for [clsx](https://www.npmjs.com/package/clsx) **_you may not actually need_** (see the [benchmark](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md))
+The fastest classname constructor out there, drop-in replacement for [clsx](https://www.npmjs.com/package/clsx).
 
-Used to construct `class` conditionally with strings, arrays and key-value objects.
+Conditionally joins class names together from strings, arrays and key-value objects:
 
-Developed as a case study, [Bun](https://bun.com) friendly. 🌿
+```typescript
+klsx('foo', 'bar', 'baz') // => "foo bar baz"
+
+klsx(['foo', ['bar', true && 'baz']]) // => "foo bar baz"
+
+klsx({ foo: 'string', bar: true, bux: null }, 'baz') // => "foo bar baz"
+```
 
 ### Features
 
-- 🚀 Unnecessarily fast (~20M ops/s)
-- 🎯 Same functionality and API of clsx
-- 👑 Modern ESM syntax
-- 💎 Zero dependencies
-- ☀️ No "lite" mode (simply doesn't make any sense)
-- 🎈 Only 277B (~190B compressed)
-- 🐳 Deeply typed and tested
-- 🚨 [Experimental WASM variant](https://github.com/vuolter/klsx/tree/wasm) (for research purposes, do not use it)
+- 🚀 Faster than [clsx](https://www.npmjs.com/package/clsx), [classnames](https://www.npmjs.com/package/classnames) and even [classix](https://www.npmjs.com/package/classix)
+- 🎯 Same of full featured [clsx](https://www.npmjs.com/package/clsx), just change a `c` with `k` and you've done!
+- 👑 ES Module syntax, written in TypeScript and optimized for [Bun](https://bun.com)
+- 💎 Zero dependencies, less than 200 bytes (Brotli)
+- 🐳 Provided with [real-world usage benchmark and memory footprint analysis](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md)
+- 🚨 [Experimental WASM variant](https://github.com/vuolter/klsx/tree/wasm) (research purpose only)
+
+## Benchmark
+
+Throughput (ops/s, higher is better) from the latest run. Bars are scaled to the fastest package in each test:
+
+![Throughput benchmark: 𝒌𝒍𝒔𝒙 vs clsx, classnames and classix](benchmark.svg)
+
+Full results: [BENCHMARK.md](BENCHMARK.md).
 
 ## Installation
+
+<details open>
+<summary>bun</summary>
 
 ```bash
 bun add klsx
 ```
 
-or with `npm`:
+</details>
+
+<details>
+<summary>npm</summary>
 
 ```bash
 npm install klsx
 ```
 
+</details>
+
+<details>
+<summary>pnpm</summary>
+
+```bash
+pnpm add klsx
+```
+
+</details>
+
+<details>
+<summary>yarn</summary>
+
+```bash
+yarn add klsx
+```
+
+</details>
+
+<details>
+<summary>deno</summary>
+
+```bash
+deno add klsx
+```
+
+</details>
+
 ## Quick Start
 
 ```typescript
-import { klsx } from 'klsx'
+import { klsx, kx } from 'klsx'
 
-klsx('foo', 'bar', 'baz')
-// => "foo bar baz"
-
-klsx({ foo: 'string', bar: true, bux: null }, 'baz')
-// => "foo bar baz"
-
-klsx(['foo', ['bar', true && 'baz']])
-// => "foo bar baz"
+kx('foo', 'bar', 'baz') // => "foo bar baz"
+klsx('foo', 'bar', 'baz') // => "foo bar baz"
 ```
-
-or importing the short alias `kx`:
 
 ### React
 
 ```jsx
-import React, { useState } from 'react'
 import { kx } from 'klsx'
+import React, { useState } from 'react'
 
 const MyComponent = () => {
   const [isActive, setIsActive] = useState(false)
-  return (
-    <div>
-      <div className={kx('base-class', isActive ? 'active' : 'inactive')}>
-        {/* ... */}
-      </div>
 
-      <div className={kx('base-class', { active: isActive, inactive: !isActive })}>
-        {/* ... */}
-      </div>
-
-      <div
-        className={kx('base-class', [isActive && 'active', !isActive && 'inactive'])}
-      >
-        {/* ... */}
-      </div>
-    </div>
-  )
+  return <div className={kx('base-class', isActive ? 'active' : 'inactive')}>{/* ... */}</div>
 }
 ```
 
-### Migrate from `clsx`
+### Migrate `cn`
 
-Just replace every `c` with a `k`, as in the example below.
-
-From:
+From `clsx`:
 
 ```typescript
-// clsx
-
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -91,11 +111,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 ```
 
-To:
+To `klsx`:
 
 ```typescript
-// KLSX
-
 import { klsx, type KlassValue } from 'klsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -116,7 +134,7 @@ export function cn(...inputs: KlassValue[]) {
 code --install-extension bradlc.vscode-tailwindcss
 ```
 
-2. Update your [`settings.json`](https://code.visualstudio.com/docs/getstarted/settings) configuration with:
+1. Update your [`settings.json`](https://code.visualstudio.com/docs/getstarted/settings) configuration with:
 
 ```json
 {
@@ -132,7 +150,7 @@ code --install-extension bradlc.vscode-tailwindcss
 bun add -D prettier prettier-plugin-tailwindcss
 ```
 
-2. Update your `prettier.config.js` configuration to handle `klsx`:
+1. Update your `prettier.config.js` configuration to handle `klsx`:
 
 ```javascript
 /** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
@@ -150,11 +168,11 @@ export default {
 bun add -D eslint eslint-plugin-clsx
 ```
 
-2. Update your `eslint.config.js` configuration to handle `klsx`:
+1. Update your `eslint.config.js` configuration to handle `klsx`:
 
 ```javascript
-import { defineConfig } from 'eslint/config'
 import clsx from 'eslint-plugin-clsx'
+import { defineConfig } from 'eslint/config'
 
 export default defineConfig({
   plugins: { clsx },

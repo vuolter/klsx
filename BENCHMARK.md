@@ -1,57 +1,64 @@
 ## Benchmark
 
-Test results _10ms_ each in Bun v1.3.2 on Apple Silicon.
-Look at the column `Samples` as a quick indicator of performance.
+Multiple tests, repeated for _100ms_ each, using Bun v1.4.4 on Apple Silicon.
 
-(TL;DR: **KLSX is the lightest & fastest almost everywhere, but the gap is so negligible and error prone**)
+_classix_ only handles string concatenation; it was therefore excluded from tests involving other data types.
 
-Benchmark (short strings):
+More `Score` => **Better**. Score is tinybench's sample count for the run.
 
-|     | Task name  | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Samples |
-| --- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------- |
-| 0   | KLSX       | 56.46 ± 0.68%    | 42.00 ± 1.00     | 20554389 ± 0.13%       | 23809524 ± 580720      | 177109  |
-| 1   | classix    | 58.41 ± 4.33%    | 42.00 ± 1.00     | 20227141 ± 0.13%       | 23809524 ± 580720      | 171195  |
-| 2   | clsx       | 55.72 ± 0.28%    | 42.00 ± 1.00     | 20357130 ± 0.13%       | 23809524 ± 580720      | 179455  |
-| 3   | classnames | 58.06 ± 4.55%    | 42.00 ± 1.00     | 20150251 ± 0.13%       | 23809524 ± 580720      | 172248  |
+### Results
 
-Benchmark (long strings):
+- **𝒌𝒍𝒔𝒙 is the fastest in four of the five tests** (mixed, objects, arrays and long strings) and is level with _classix_ on short strings, where the gap is within noise.
+- **𝒌𝒍𝒔𝒙 ships a larger bundle than _classix_ and _clsx_** (426 bytes raw, 196 bytes Brotli). _classix_ is the smallest.
+- **Load memory is similar across libraries**, except _classnames_, which is about 2.7 times larger.
 
-|     | Task name  | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Samples |
-| --- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------- |
-| 0   | KLSX       | 135.32 ± 5.93%   | 125.00 ± 0.00    | 9377312 ± 0.19%        | 8000000 ± 0            | 73900   |
-| 1   | classix    | 174.34 ± 0.75%   | 125.00 ± 0.00    | 6765287 ± 0.20%        | 8000000 ± 0            | 57360   |
-| 2   | clsx       | 222.94 ± 6.05%   | 167.00 ± 1.00    | 5421387 ± 0.20%        | 5988024 ± 36072        | 44855   |
-| 3   | classnames | 147.47 ± 0.53%   | 125.00 ± 0.00    | 7482902 ± 0.13%        | 8000000 ± 0            | 67812   |
+#### Benchmark (mixed / real-world)
 
-Benchmark (objects):
+| Rank | Package    | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Score   |
+| ---- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------- |
+| 1st  | 𝒌𝒍𝒔𝒙       | 46.45 ± 0.61%    | 42.00 ± 0.00     | 22908431 ± 0.02%       | 23809524 ± 0           | 2152942 |
+| 2nd  | clsx       | 66.35 ± 1.44%    | 42.00 ± 1.00     | 18115164 ± 0.06%       | 23809524 ± 580720      | 1507048 |
+| 3rd  | classnames | 100.25 ± 0.73%   | 84.00 ± 41.00    | 11453697 ± 0.08%       | 11904762 ± 3904762     | 997540  |
 
-|     | Task name  | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Samples |
-| --- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------- |
-| 0   | KLSX       | 98.96 ± 1.29%    | 83.00 ± 0.00     | 11274574 ± 0.10%       | 12048193 ± 0           | 101049  |
-| 1   | clsx       | 105.39 ± 0.68%   | 83.00 ± 0.00     | 10986267 ± 0.13%       | 12048193 ± 0           | 94887   |
-| 2   | classnames | 97.48 ± 0.42%    | 83.00 ± 0.00     | 11183838 ± 0.11%       | 12048193 ± 0           | 102591  |
+#### Benchmark (objects)
 
-Benchmark (arrays):
+| Rank | Package    | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Score   |
+| ---- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------- |
+| 1st  | 𝒌𝒍𝒔𝒙       | 77.64 ± 0.73%    | 83.00 ± 1.00     | 14468793 ± 0.06%       | 12048193 ± 143431      | 1288008 |
+| 2nd  | classnames | 84.75 ± 0.75%    | 83.00 ± 0.00     | 12866220 ± 0.06%       | 12048193 ± 0           | 1179878 |
+| 3rd  | clsx       | 89.64 ± 0.79%    | 83.00 ± 0.00     | 12338257 ± 0.06%       | 12048193 ± 0           | 1115631 |
 
-|     | Task name  | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Samples |
-| --- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------- |
-| 0   | KLSX       | 91.37 ± 0.71%    | 83.00 ± 0.00     | 11628447 ± 0.08%       | 12048193 ± 0           | 109448  |
-| 1   | clsx       | 140.18 ± 9.28%   | 125.00 ± 0.00    | 8325415 ± 0.16%        | 8000000 ± 0            | 71340   |
-| 2   | classnames | 137.70 ± 0.34%   | 125.00 ± 0.00    | 7673930 ± 0.11%        | 8000000 ± 0            | 72624   |
+#### Benchmark (arrays)
 
-Benchmark (mixed):
+| Rank | Package    | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Score   |
+| ---- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------- |
+| 1st  | 𝒌𝒍𝒔𝒙       | 79.45 ± 0.41%    | 83.00 ± 0.00     | 13728159 ± 0.06%       | 12048193 ± 0           | 1258611 |
+| 2nd  | clsx       | 93.96 ± 0.64%    | 83.00 ± 0.00     | 11539212 ± 0.05%       | 12048193 ± 0           | 1064287 |
+| 3rd  | classnames | 117.41 ± 0.71%   | 125.00 ± 0.00    | 9003611 ± 0.05%        | 8000000 ± 0            | 851718  |
 
-|     | Task name  | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Samples |
-| --- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------- |
-| 0   | KLSX       | 120.19 ± 6.40%   | 125.00 ± 41.00   | 9823538 ± 0.16%        | 8000000 ± 3904762      | 83200   |
-| 1   | clsx       | 150.46 ± 6.24%   | 125.00 ± 0.00    | 7441597 ± 0.13%        | 8000000 ± 0            | 66465   |
-| 2   | classnames | 179.99 ± 5.99%   | 167.00 ± 0.00    | 6080521 ± 0.13%        | 5988024 ± 0            | 55558   |
+#### Benchmark (long strings)
 
-Memory Usage:
+| Rank | Package    | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Score  |
+| ---- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------ |
+| 1st  | 𝒌𝒍𝒔𝒙       | 104.72 ± 0.79%   | 84.00 ± 1.00     | 10272946 ± 0.04%       | 11904762 ± 143431      | 954941 |
+| 2nd  | classix    | 122.83 ± 1.51%   | 125.00 ± 0.00    | 9310430 ± 0.06%        | 8000000 ± 0            | 814116 |
+| 3rd  | classnames | 122.87 ± 0.74%   | 125.00 ± 0.00    | 8654288 ± 0.05%        | 8000000 ± 0            | 813867 |
+| 4th  | clsx       | 178.19 ± 1.28%   | 167.00 ± 1.00    | 5991933 ± 0.04%        | 5988024 ± 36072        | 561187 |
 
-|     | Task name  | Footprint size (bytes) | Shallow size (bytes) |
-| --- | ---------- | ---------------------- | -------------------- |
-| 0   | KLSX       | 44                     | 32                   |
-| 1   | classix    | 163                    | 32                   |
-| 2   | clsx       | 163                    | 32                   |
-| 3   | classnames | 241                    | 36                   |
+#### Benchmark (short strings)
+
+| Rank | Package    | Latency avg (ns) | Latency med (ns) | Throughput avg (ops/s) | Throughput med (ops/s) | Score   |
+| ---- | ---------- | ---------------- | ---------------- | ---------------------- | ---------------------- | ------- |
+| 1st  | 𝒌𝒍𝒔𝒙       | 55.16 ± 0.40%    | 42.00 ± 1.00     | 20346448 ± 0.04%       | 23809524 ± 580719      | 1813030 |
+| 2nd  | classix    | 56.88 ± 0.63%    | 42.00 ± 1.00     | 20056617 ± 0.04%       | 23809524 ± 580719      | 1758029 |
+| 3rd  | classnames | 63.28 ± 0.40%    | 42.00 ± 1.00     | 18129326 ± 0.05%       | 23809523 ± 580721      | 1580392 |
+| 4th  | clsx       | 69.79 ± 0.32%    | 83.00 ± 1.00     | 16343234 ± 0.06%       | 12048193 ± 143431      | 1432776 |
+
+#### Analysis (memory usage)
+
+| Rank | Package    | Shallow (bytes) | Storage (bytes) | Load (bytes) | Dist (bytes) | Gzip (bytes) | Brotli (bytes) |
+| ---- | ---------- | --------------- | --------------- | ------------ | ------------ | ------------ | -------------- |
+| 1st  | classix    | 32              | 163             | 2114         | 151          | 142          | 109            |
+| 2nd  | clsx       | 32              | 163             | 2879         | 388          | 242          | 192            |
+| 3rd  | 𝒌𝒍𝒔𝒙       | 32              | 222             | 2885         | 426          | 219          | 196            |
+| 4th  | classnames | 36              | 241             | 7903         | 1530         | 664          | 517            |
