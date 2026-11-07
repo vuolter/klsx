@@ -1,4 +1,4 @@
-export type KlassObject = Record<string, boolean | unknown>
+export type KlassObject = Record<string, unknown>
 export type KlassArray = KlassValue[]
 export type KlassValue =
   | bigint
