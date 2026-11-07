@@ -16,8 +16,8 @@
     "module": "preserve",
     "moduleResolution": "bundler",
     "paths": {
-      "~/*": ["./src/*"],
-      "~~/*": ["./*"]
+      "@/*": ["./src/*"],
+      "@@/*": ["./*"]
     },
     "resolveJsonModule": true,
     "rewriteRelativeImportExtensions": true,
