@@ -7,7 +7,7 @@
       "devDependencies": {
         "@socketsecurity/bun-security-scanner": "1.1.3",
         "@types/bun": "1.4.4",
-        "classix": "2.2.21",
+        "classix": "2.2.27",
         "classnames": "2.5.1",
         "clsx": "2.1.1",
         "oxfmt": "0.76.0",
@@ -220,7 +220,7 @@
 
     "cac": ["cac@7.1.0", "", {}, "sha512-LMDU/U2yA4IPIY8KT0NsNPWEYZvAMkbgyspxJ6btJaYV+WMDOHAZCmB0lsTObiHaRS1V/ztKAl7+TSkTqXyeoA=="],
 
-    "classix": ["classix@2.2.21", "", {}, "sha512-IswPGEDan86g9rXM/aAiko4/xU2lGvWY9x1In6poi7fTRaA8FKIs4KFwK3mWK+bGV96vNSbuy6pD2I7icKf/NA=="],
+    "classix": ["classix@2.2.27", "", {}, "sha512-SOwUUXJAFIvnSJJNcWq7a3Nq8a+toWWiupWz39/HfaEewy9B//P1VignLUKu7nEq9cyijdXhBuiZkcZ4u/xevQ=="],
 
     "classnames": ["classnames@2.5.1", "", {}, "sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow=="],
 

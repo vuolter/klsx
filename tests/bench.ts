@@ -89,8 +89,8 @@ const ordinal = (n: number): string => {
 const ANSI_RESET = '\u001B[0m'
 const BOLD = '\u001B[1m'
 // Fully saturated truecolor, so the colours don't depend on the terminal theme
-const GREEN_TEXT = '\u001B[38;2;35;195;35m'
-const RED_TEXT = '\u001B[38;2;195;35;35m'
+const GREEN_TEXT = '\u001B[38;2;80;220;140m'
+const RED_TEXT = '\u001B[38;2;255;95;95m'
 
 const paint = (text: string, foreground = ''): string => `${BOLD}${foreground}${text}${ANSI_RESET}`
 
@@ -247,10 +247,10 @@ for (const [id, fn] of COMPETITORS) {
     [PACKAGE_COLUMN]: id,
     'Shallow (bytes)': shallow,
     'Storage (bytes)': storage,
-    'Load (bytes)': load,
     [DIST_COLUMN]: dist.raw,
     'Gzip (bytes)': dist.gzip,
     'Brotli (bytes)': dist.brotli,
+    'Load (bytes)': load,
   })
 }
 
@@ -261,16 +261,45 @@ for (const [taskName, table] of Object.entries(benchTables)) {
   console.table(withOrdinals(table, true))
 }
 
-// Smaller brotli size is better, so the memory table ranks from smallest to largest brotli
-const brotliOf = (row: Row): number => {
-  const brotli = row['Brotli (bytes)']
-  return typeof brotli === 'number' ? brotli : Infinity
+const pickColumns = (row: Row, columns: string[]): Row =>
+  Object.fromEntries(columns.map((column) => [column, row[column]]))
+
+// Smaller load memory is better, so the memory table ranks from smallest to largest load
+const loadOf = (row: Row): number => {
+  const load = row['Load (bytes)']
+  return typeof load === 'number' ? load : Infinity
 }
 
 console.log('\n', 'Analysis (memory usage):')
 console.table(
   withOrdinals(
-    memoryTable.toSorted((a, b) => byAscending(brotliOf(a), brotliOf(b))),
+    memoryTable
+      .toSorted((a, b) => byAscending(loadOf(a), loadOf(b)))
+      .map((row) => pickColumns(row, [PACKAGE_COLUMN, 'Shallow (bytes)', 'Load (bytes)'])),
+    true,
+  ),
+)
+
+// Smaller brotli size is better, so the storage table ranks from smallest to largest brotli
+const brotliOf = (row: Row): number => {
+  const brotli = row['Brotli (bytes)']
+  return typeof brotli === 'number' ? brotli : Infinity
+}
+
+console.log('\n', 'Analysis (disk usage):')
+console.table(
+  withOrdinals(
+    memoryTable
+      .toSorted((a, b) => byAscending(brotliOf(a), brotliOf(b)))
+      .map((row) =>
+        pickColumns(row, [
+          PACKAGE_COLUMN,
+          'Storage (bytes)',
+          DIST_COLUMN,
+          'Gzip (bytes)',
+          'Brotli (bytes)',
+        ]),
+      ),
     true,
   ),
 )

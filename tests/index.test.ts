@@ -97,7 +97,16 @@ describe.concurrent('klsx', () => {
   })
 
   test('getter values are read', () => {
-    expect(klsx({ get x() { return true }, get y() { return false } })).toBe('x')
+    expect(
+      klsx({
+        get x() {
+          return true
+        },
+        get y() {
+          return false
+        },
+      }),
+    ).toBe('x')
   })
 
   test('inherited enumerable keys are included (clsx-compatible)', () => {
