@@ -1,11 +1,10 @@
 {
-  "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
+  "editor.codeActionsOnSave": { "source.format.oxc": "always" },
   "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
   "npm.packageManager": "bun",
   "js/ts.experimental.useTsgo": true,
-  "oxc.path.oxfmt": "node_modules/oxfmt/dist/cli.js",
-  "oxc.path.oxlint": "node_modules/oxlint/dist/cli.js",
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
