@@ -28,7 +28,7 @@ Throughput (ops/s, higher is better) from the latest run:
 
 ###### Bars are scaled to the fastest package in each test
 
-![Throughput benchmark: 𝒌𝒍𝒔𝒙 vs clsx, classnames and classix](benchmark.svg)
+![Throughput benchmark: 𝒌𝒍𝒔𝒙 vs clsx, classnames and classix](assets/benchmark.svg)
 
 Full results: [BENCHMARK.md](BENCHMARK.md).
 

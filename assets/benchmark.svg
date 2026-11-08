@@ -8,18 +8,10 @@ text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fon
 .value { fill: #4b5563; font-variant-numeric: tabular-nums; }
 .klsx-hl { fill: #2563eb; }
 .klsx-other { fill: #cbd5e1; }
-@media (prefers-color-scheme: dark) {
-  .title { fill: #f3f4f6; }
-  .label { fill: #9ca3af; }
-  .bold { fill: #f9fafb; }
-  .value { fill: #9ca3af; }
-  .klsx-hl { fill: #60a5fa; }
-  .klsx-other { fill: #475569; }
-}
 </style>
 <g transform="translate(0,20)">
 <text x="24" y="20" class="title">mixed / real-world</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.2</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
 <text x="672" y="46" class="value">23.1M ops/s</text>
 <text x="24" y="72" class="label">clsx <tspan class="ver">v2.1.1</tspan></text>
@@ -31,7 +23,7 @@ text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fon
 </g>
 <g transform="translate(0,156)">
 <text x="24" y="20" class="title">objects</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.2</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
 <text x="672" y="46" class="value">14.5M ops/s</text>
 <text x="24" y="72" class="label">classnames <tspan class="ver">v2.5.1</tspan></text>
@@ -43,7 +35,7 @@ text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fon
 </g>
 <g transform="translate(0,292)">
 <text x="24" y="20" class="title">arrays</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.2</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
 <text x="672" y="46" class="value">14.2M ops/s</text>
 <text x="24" y="72" class="label">clsx <tspan class="ver">v2.1.1</tspan></text>
@@ -55,7 +47,7 @@ text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fon
 </g>
 <g transform="translate(0,428)">
 <text x="24" y="20" class="title">long strings</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.2</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
 <text x="672" y="46" class="value">10.5M ops/s</text>
 <text x="24" y="72" class="label">classix <tspan class="ver">v2.2.27</tspan></text>
@@ -70,7 +62,7 @@ text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fon
 </g>
 <g transform="translate(0,590)">
 <text x="24" y="20" class="title">short strings</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.2</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
 <text x="672" y="46" class="value">20.4M ops/s</text>
 <text x="24" y="72" class="label">classix <tspan class="ver">v2.2.27</tspan></text>
