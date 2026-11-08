@@ -6,7 +6,7 @@ More `Score` => **Better**. Score is tinybench's sample count for the run.
 
 ### Packages compared
 
-- [𝒌𝒍𝒔𝒙 _v0.4.1_](https://www.npmjs.com/package/klsx)
+- [𝒌𝒍𝒔𝒙 _v0.4.2_](https://www.npmjs.com/package/klsx)
 - [classix _v2.2.27_](https://www.npmjs.com/package/classix)
 - [clsx _v2.1.1_](https://www.npmjs.com/package/clsx)
 - [classnames _v2.5.1_](https://www.npmjs.com/package/classnames)

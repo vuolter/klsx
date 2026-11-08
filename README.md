@@ -20,13 +20,11 @@ klsx({ foo: 'string', bar: true, bux: null }, 'baz') // => "foo bar baz"
 - 🎯 Same of full featured [clsx](https://www.npmjs.com/package/clsx), just change a `c` with `k` and you've done!
 - 👑 ES Module syntax, written in TypeScript and tested on [Bun](https://bun.com)
 - 💎 Zero dependencies, less than 200 bytes (Brotli)
-- 🐳 Provided with [real-world usage benchmark and memory footprint analysis](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md)
+- 📈 Provided with [real-world usage benchmark and memory footprint analysis](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md)
 
 ## Benchmark
 
 Throughput (ops/s, higher is better) from the latest run:
-
-###### Bars are scaled to the fastest package in each test
 
 ![Throughput benchmark: 𝒌𝒍𝒔𝒙 vs clsx, classnames and classix](assets/benchmark.svg)
 
