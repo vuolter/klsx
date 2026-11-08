@@ -1,19 +1,6 @@
-import { type KlassObject, type KlassValue } from '@/types'
+import { type KlassValue } from '@/types'
 
-const isArray = Array.isArray
-
-// Appends the truthy keys of an object to str
-function append(obj: KlassObject, str: string): string {
-  for (const key in obj) {
-    if (key && obj[key]) {
-      str = str ? str + ' ' + key : key
-    }
-  }
-  return str
-}
-
-// Appends every truthy class in list to str, recursing into nested arrays
-function collect(list: readonly KlassValue[], str: string): string {
+function kx(str: string, list: readonly KlassValue[]): string {
   for (let i = 0; i < list.length; i++) {
     const item = list[i]
     if (!item) {
@@ -21,24 +8,37 @@ function collect(list: readonly KlassValue[], str: string): string {
     }
     if (typeof item == 'string') {
       str = str ? str + ' ' + item : item
+    } else if (Array.isArray(item)) {
+      str = kx(str, item)
     } else if (typeof item == 'object') {
-      str = isArray(item) ? collect(item, str) : append(item, str)
+      for (const key in item) {
+        if (key && item[key]) {
+          str = str ? str + ' ' + key : key
+        }
+      }
     }
   }
   return str
 }
 
-export default function klsx(...args: KlassValue[]): string {
+export default function klsx(...args: KlassValue[]): string
+export default function klsx(): string {
   let str = ''
-  for (let i = 0; i < args.length; i++) {
-    const arg = args[i]
+  for (let i = 0; i < arguments.length; i++) {
+    const arg = arguments[i]
     if (!arg) {
       continue
     }
     if (typeof arg == 'string') {
       str = str ? str + ' ' + arg : arg
+    } else if (Array.isArray(arg)) {
+      str = kx(str, arg)
     } else if (typeof arg == 'object') {
-      str = isArray(arg) ? collect(arg, str) : append(arg, str)
+      for (const key in arg) {
+        if (key && arg[key]) {
+          str = str ? str + ' ' + key : key
+        }
+      }
     }
   }
   return str
