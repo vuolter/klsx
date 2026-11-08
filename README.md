@@ -1,6 +1,8 @@
 # 🎨 𝒌𝒍𝒔𝒙
 
-The fastest classname constructor out there, drop-in replacement for [clsx](https://www.npmjs.com/package/clsx).
+#### The fastest classname constructor out there, drop-in replacement for [clsx](https://www.npmjs.com/package/clsx)
+
+---
 
 Conditionally joins class names together from strings, arrays and key-value objects:
 
@@ -16,14 +18,15 @@ klsx({ foo: 'string', bar: true, bux: null }, 'baz') // => "foo bar baz"
 
 - 🚀 Faster than [clsx](https://www.npmjs.com/package/clsx), [classnames](https://www.npmjs.com/package/classnames) and even [classix](https://www.npmjs.com/package/classix)
 - 🎯 Same of full featured [clsx](https://www.npmjs.com/package/clsx), just change a `c` with `k` and you've done!
-- 👑 ES Module syntax, written in TypeScript and optimized for [Bun](https://bun.com)
+- 👑 ES Module syntax, written in TypeScript and tested on [Bun](https://bun.com)
 - 💎 Zero dependencies, less than 200 bytes (Brotli)
 - 🐳 Provided with [real-world usage benchmark and memory footprint analysis](https://github.com/vuolter/klsx/blob/main/BENCHMARK.md)
-- 🚨 [Experimental WASM variant](https://github.com/vuolter/klsx/tree/wasm) (research purpose only)
 
 ## Benchmark
 
-Throughput (ops/s, higher is better) from the latest run. Bars are scaled to the fastest package in each test:
+Throughput (ops/s, higher is better) from the latest run:
+
+###### Bars are scaled to the fastest package in each test
 
 ![Throughput benchmark: 𝒌𝒍𝒔𝒙 vs clsx, classnames and classix](benchmark.svg)
 

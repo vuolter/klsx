@@ -19,68 +19,68 @@ text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fon
 </style>
 <g transform="translate(0,20)">
 <text x="24" y="20" class="title">mixed / real-world</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.0</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
-<text x="672" y="46" class="value">22.9M ops/s</text>
+<text x="672" y="46" class="value">23.1M ops/s</text>
 <text x="24" y="72" class="label">clsx <tspan class="ver">v2.1.1</tspan></text>
-<rect x="194" y="60" width="372" height="16" rx="3" class="klsx-other"/>
-<text x="574" y="72" class="value">18.1M ops/s</text>
+<rect x="194" y="60" width="357" height="16" rx="3" class="klsx-other"/>
+<text x="559" y="72" class="value">17.6M ops/s</text>
 <text x="24" y="98" class="label">classnames <tspan class="ver">v2.5.1</tspan></text>
-<rect x="194" y="86" width="235" height="16" rx="3" class="klsx-other"/>
-<text x="437" y="98" class="value">11.5M ops/s</text>
+<rect x="194" y="86" width="285" height="16" rx="3" class="klsx-other"/>
+<text x="487" y="98" class="value">14.0M ops/s</text>
 </g>
 <g transform="translate(0,156)">
 <text x="24" y="20" class="title">objects</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.0</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
 <text x="672" y="46" class="value">14.5M ops/s</text>
 <text x="24" y="72" class="label">classnames <tspan class="ver">v2.5.1</tspan></text>
-<rect x="194" y="60" width="418" height="16" rx="3" class="klsx-other"/>
-<text x="620" y="72" class="value">12.9M ops/s</text>
+<rect x="194" y="60" width="420" height="16" rx="3" class="klsx-other"/>
+<text x="622" y="72" class="value">13.0M ops/s</text>
 <text x="24" y="98" class="label">clsx <tspan class="ver">v2.1.1</tspan></text>
-<rect x="194" y="86" width="401" height="16" rx="3" class="klsx-other"/>
-<text x="603" y="98" class="value">12.3M ops/s</text>
+<rect x="194" y="86" width="390" height="16" rx="3" class="klsx-other"/>
+<text x="592" y="98" class="value">12.1M ops/s</text>
 </g>
 <g transform="translate(0,292)">
 <text x="24" y="20" class="title">arrays</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.0</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
-<text x="672" y="46" class="value">13.7M ops/s</text>
+<text x="672" y="46" class="value">14.2M ops/s</text>
 <text x="24" y="72" class="label">clsx <tspan class="ver">v2.1.1</tspan></text>
-<rect x="194" y="60" width="395" height="16" rx="3" class="klsx-other"/>
-<text x="597" y="72" class="value">11.5M ops/s</text>
+<rect x="194" y="60" width="359" height="16" rx="3" class="klsx-other"/>
+<text x="561" y="72" class="value">10.8M ops/s</text>
 <text x="24" y="98" class="label">classnames <tspan class="ver">v2.5.1</tspan></text>
-<rect x="194" y="86" width="308" height="16" rx="3" class="klsx-other"/>
-<text x="510" y="98" class="value">9.0M ops/s</text>
+<rect x="194" y="86" width="313" height="16" rx="3" class="klsx-other"/>
+<text x="515" y="98" class="value">9.4M ops/s</text>
 </g>
 <g transform="translate(0,428)">
 <text x="24" y="20" class="title">long strings</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.0</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
-<text x="672" y="46" class="value">10.3M ops/s</text>
-<text x="24" y="72" class="label">classix <tspan class="ver">v2.2.21</tspan></text>
-<rect x="194" y="60" width="426" height="16" rx="3" class="klsx-other"/>
-<text x="628" y="72" class="value">9.3M ops/s</text>
+<text x="672" y="46" class="value">10.5M ops/s</text>
+<text x="24" y="72" class="label">classix <tspan class="ver">v2.2.27</tspan></text>
+<rect x="194" y="60" width="418" height="16" rx="3" class="klsx-other"/>
+<text x="620" y="72" class="value">9.4M ops/s</text>
 <text x="24" y="98" class="label">classnames <tspan class="ver">v2.5.1</tspan></text>
-<rect x="194" y="86" width="396" height="16" rx="3" class="klsx-other"/>
-<text x="598" y="98" class="value">8.7M ops/s</text>
+<rect x="194" y="86" width="386" height="16" rx="3" class="klsx-other"/>
+<text x="588" y="98" class="value">8.7M ops/s</text>
 <text x="24" y="124" class="label">clsx <tspan class="ver">v2.1.1</tspan></text>
-<rect x="194" y="112" width="274" height="16" rx="3" class="klsx-other"/>
-<text x="476" y="124" class="value">6.0M ops/s</text>
+<rect x="194" y="112" width="266" height="16" rx="3" class="klsx-other"/>
+<text x="468" y="124" class="value">6.0M ops/s</text>
 </g>
 <g transform="translate(0,590)">
 <text x="24" y="20" class="title">short strings</text>
-<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.0</tspan></text>
+<text x="24" y="46" class="label bold">𝒌𝒍𝒔𝒙 <tspan class="ver">v0.4.1</tspan></text>
 <rect x="194" y="34" width="470" height="16" rx="3" class="klsx-hl"/>
-<text x="672" y="46" class="value">20.3M ops/s</text>
-<text x="24" y="72" class="label">classix <tspan class="ver">v2.2.21</tspan></text>
-<rect x="194" y="60" width="463" height="16" rx="3" class="klsx-other"/>
-<text x="665" y="72" class="value">20.1M ops/s</text>
+<text x="672" y="46" class="value">20.4M ops/s</text>
+<text x="24" y="72" class="label">classix <tspan class="ver">v2.2.27</tspan></text>
+<rect x="194" y="60" width="460" height="16" rx="3" class="klsx-other"/>
+<text x="662" y="72" class="value">20.0M ops/s</text>
 <text x="24" y="98" class="label">classnames <tspan class="ver">v2.5.1</tspan></text>
-<rect x="194" y="86" width="419" height="16" rx="3" class="klsx-other"/>
-<text x="621" y="98" class="value">18.1M ops/s</text>
+<rect x="194" y="86" width="413" height="16" rx="3" class="klsx-other"/>
+<text x="615" y="98" class="value">18.0M ops/s</text>
 <text x="24" y="124" class="label">clsx <tspan class="ver">v2.1.1</tspan></text>
-<rect x="194" y="112" width="378" height="16" rx="3" class="klsx-other"/>
-<text x="580" y="124" class="value">16.3M ops/s</text>
+<rect x="194" y="112" width="367" height="16" rx="3" class="klsx-other"/>
+<text x="569" y="124" class="value">15.9M ops/s</text>
 </g>
 </svg>

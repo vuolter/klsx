@@ -1,7 +1,7 @@
 {
   "name": "klsx",
-  "version": "0.4.0",
-  "description": "Same as clsx but \"maybe\" better",
+  "version": "0.4.1",
+  "description": "The fastest classname constructor out there, drop-in replacement for clsx",
   "keywords": [
     "bun",
     "class",
@@ -12,7 +12,9 @@
     "cn",
     "cx",
     "klsx",
-    "kx"
+    "kx",
+    "react",
+    "tailwind-merge"
   ],
   "license": "MIT",
   "author": {
