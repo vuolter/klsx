@@ -7,5 +7,5 @@
   "trailingComma": "all",
   "sortImports": true,
   "sortPackageJson": true,
-  "ignorePatterns": ["dist/**"]
+  "ignorePatterns": ["assets/**", "dist/**"]
 }
